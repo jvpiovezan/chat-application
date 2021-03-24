@@ -1,0 +1,21 @@
+{
+  "name": "chat",
+  "main": "index.js",
+  "scripts": {
+    "devServer": "nodemon .",
+    "devBundler": "parcel watch dev/** -d build",
+    "start": "node .",
+    "build": "parcel build dev/** -d build"
+  },
+  "author": "vitu",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^4.0.0"
+  },
+  "devDependencies": {
+    "cssnano": "^4.1.10",
+    "nodemon": "^2.0.7",
+    "parcel-bundler": "^1.12.5"
+  }
+}

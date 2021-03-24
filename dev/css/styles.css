@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+:root {
+	--lighter: #aba9eb;
+	--normal: #6965e6;
+	--darker: #4b46e8;
+	--white: #fff;
+	--font: 'Montserrat';
+}
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html, body {
+	height: 100%;
+}
+
+#chat-area {
+	height: 100%;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 200px;
+	grid-template-rows: 1fr 1fr 1fr 1fr 1fr 60px;
+	grid-template-areas:
+		"ML ML ML UL"
+		"ML ML ML UL"
+		"ML ML ML UL"
+		"ML ML ML UL"
+		"ML ML ML UL"
+		"MI MI MI MI";
+	overflow: hidden;
+}
+
+/* User List */
+
+#user-list-area {
+	grid-area: UL;
+	overflow-wrap: break-word;
+	background: var(--darker);
+	color: var(--white);
+	overflow-y: scroll;
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+
+#user-list-area::-webkit-scrollbar {
+	display: none;
+}
+
+#user-list-area > h1 {
+	font-family: var(--font);
+	font-size: 2em;
+	text-align: center;
+	margin-top: 20px;
+}
+
+#user-list-area > ul {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	margin: 10px;
+}
+
+#user-list-area > ul > li {
+	list-style-type: none;
+	font-family: var(--font);
+	padding: 5px;
+	border-radius: 10px;
+	margin-bottom: 5px;
+	font-size: 1em;
+}
+
+#user-list-area > ul > li:hover {
+	background: var(--lighter);
+}
+
+#user-list-area > ul > li#you {
+	background: var(--lighter);
+}
+
+/* Message List */
+
+#message-list-area {
+	grid-area: ML;
+	scrollbar-width: none;
+	overflow-y: scroll;
+	display: flex;
+	background: linear-gradient(
+		to left bottom,
+		var(--lighter),
+		var(--darker)
+	);
+}
+
+#message-list-area > ul {
+	display: flex;
+	flex-direction: column;
+	margin: 20px;
+}
+
+#message-list-area > ul > li {
+	list-style-type: none;
+	padding: 10px;
+}
+
+#message-list-area > ul > li > .username {
+	margin-bottom: 5px;
+	font-family: var(--font);
+	font-size: 1em;
+	word-break: break-word;
+	color: var(--white);
+}
+
+#message-list-area > ul > li > .message-box {
+	color: var(--white);
+	background: var(--darker);
+	padding: 15px;
+	border-radius: 10px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+	font-family: var(--font);
+	font-size: 1.5em;
+	display: inline-block;
+	word-break: break-word;
+}
+
+/* Message Input */
+
+#chat-form {
+	grid-area: MI;
+	box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+#chat-form > #message-input {
+	width: 100%;
+	height: 100%;
+	border: none;
+	outline: none;
+	font-family: var(--font);
+	font-size: 2em;
+	padding: 0.5em;
+	overflow-wrap: break-word;
+	background: var(--darker);
+	color: var(--white);
+}
+
+#chat-form > #message-input:required {
+	box-shadow: none;
+}
+
+/* Alert Box */
+
+#black-screen.hidden {
+  display: none;
+}
+
+#black-screen {
+  height: 100%;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#alert-box {
+  background: rgb(51, 51, 51);
+  padding: 10px;
+  width: 300px;
+  height: 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+#alert-box > form > .form-control {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+#alert-box > form > h1 {
+  font-family: var(--font);
+  font-size: 2.5em;
+  color: var(--white);
+  margin-bottom: 20px;
+	text-align: center;
+}
+
+#alert-box > form > .form-control > label {
+  font-family: var(--font);
+  font-size: 1em;
+  color: var(--white);
+  margin-bottom: 5px;
+}
+
+#alert-box > form > .form-control > input {
+  border: none;
+  background: var(--white);
+  padding: 10px;
+  border-radius: 10px;
+  font-family: var(--font);
+  font-size: 0.9em;
+  outline: none;
+}
+
+#alert-box > form > .form-control > input:required {
+  box-shadow: none;
+}
+
+#alert-box > form > button {
+  width: 100%;
+  background: linear-gradient(
+    to top right,
+    var(--normal),
+    var(--darker)
+  );
+  border: none;
+  padding: 10px;
+  color: var(--white);
+  font-family: var(--font);
+  font-size: 1em;
+  border-radius: 10px;
+  cursor: pointer;
+  outline: none;
+}
